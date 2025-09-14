@@ -8607,7 +8607,7 @@ export enum WeightUnit {
 export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProductsQuery = { __typename?: 'QueryRoot', products: { __typename?: 'ProductConnection', edges: Array<{ __typename?: 'ProductEdge', cursor: string, node: { __typename?: 'Product', title: string } }> } };
+export type GetProductsQuery = { __typename?: 'QueryRoot', products: { __typename?: 'ProductConnection', edges: Array<{ __typename?: 'ProductEdge', node: { __typename?: 'Product', id: string, handle:string, title: string, options: Array<{ __typename?: 'ProductOption', name: string, values: Array<string> }>, priceRange: { __typename?: 'ProductPriceRange', minVariantPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, maxVariantPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }, variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, title: string, selectedOptions: Array<{ __typename?: 'SelectedOption', name: string, value: string }>, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, compareAtPrice?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null, image?: { __typename?: 'Image', url: any, altText?: string | null } | null, metafields: Array<{ __typename?: 'Metafield', key: string, value: string } | null> }> }, media: { __typename?: 'MediaConnection', nodes: Array<{ __typename: 'ExternalVideo', id: string, alt?: string | null, previewImage?: { __typename?: 'Image', url: any } | null } | { __typename: 'MediaImage', id: string, alt?: string | null, image?: { __typename?: 'Image', url: any, altText?: string | null } | null, previewImage?: { __typename?: 'Image', url: any } | null } | { __typename: 'Model3d', id: string, alt?: string | null, previewImage?: { __typename?: 'Image', url: any } | null } | { __typename: 'Video', id: string, alt?: string | null, previewImage?: { __typename?: 'Image', url: any } | null }> } } }> } };
 
 export type CustomerAccessTokenCreateMutationVariables = Exact<{
   input: CustomerAccessTokenCreateInput;
@@ -8737,9 +8737,65 @@ export const GetProductsDocument = `
     query getProducts {
   products(first: 10) {
     edges {
-      cursor
       node {
+        id
         title
+        options {
+          name
+          values
+        }
+        priceRange {
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+          maxVariantPrice {
+            amount
+            currencyCode
+          }
+        }
+        variants(first: 100) {
+          nodes {
+            id
+            title
+            selectedOptions {
+              name
+              value
+            }
+            price {
+              amount
+              currencyCode
+            }
+            compareAtPrice {
+              amount
+              currencyCode
+            }
+            image {
+              url
+              altText
+            }
+            metafields(identifiers: [{namespace: "custom", key: "color"}]) {
+              key
+              value
+            }
+          }
+        }
+        media(first: 100) {
+          nodes {
+            __typename
+            id
+            alt
+            previewImage {
+              url
+            }
+            ... on MediaImage {
+              image {
+                url
+                altText
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -8,6 +8,7 @@ import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { GET_ALL_PORDUCTS } from "@/graphql/allproducts";
+import Link from "next/link";
 const AllProducts = () => {
   const router = useRouter();
   const { data, isLoading } = useStorefrontQuery<GetProductsQuery>(
@@ -30,23 +31,11 @@ const AllProducts = () => {
 
   return (
     <div className="grid grid-cols-2 gap-6 w-full my-10">
-      {/* {data?.collections.edges.map((collection) => (
-        <button
-          onClick={() => router.push(`/collections/${collection.node.handle}`)}
-          key={collection.node.id}
-        >
-          <div className="relative w-full h-[500px] rounded-lg overflow-hidden">
-            <Image
-              src={collection.node.image?.url ?? ""}
-              alt={collection.node.image?.altText ?? ""}
-              layout="fill"
-              className="w-full h-full object-cover rounded-lg shadow-lg"
-            />
-          </div>
-          <h1>{collection.node.title}</h1>
-          <p>{collection.node.description}</p>
-        </button>
-      ))} */}
+      {data?.products?.edges.map(item=>{
+        return<Link href={"/product/"+item.node.handle}>
+          <span>{item.node.title}</span>
+         {item.node.media.nodes.length > 0 && <img src={item.node.media.nodes[0].previewImage?.url} alt="img"/>}          </Link>
+      })}
     </div>
   );
 };

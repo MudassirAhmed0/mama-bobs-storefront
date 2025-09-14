@@ -12,8 +12,7 @@ import { Badge } from "@/components/ui/badge";
 const Navbar = () => {
   const router = useRouter();
 
-  const { cart, initializeCart } = useCartActions();
-
+  const { cart, initializeCart } = useCartActions(); 
   useEffect(() => {
     if (!cart?.checkoutUrl) {
       initializeCart();

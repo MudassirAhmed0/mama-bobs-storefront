@@ -31,8 +31,8 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto max-w-6xl py-10`}
         >
-          {/* <Toaster />
-          <Navbar /> */}
+          <Toaster />
+          <Navbar />
           {children}
         </body>
       </Providers>

@@ -109,7 +109,7 @@ const ProductOptions = ({
   };
 
   return (
-    <div className="flex w-full gap-4">
+    <div className="flex flex-col w-full gap-4">
       {options.map((option) => (
         <div key={option.name} className="flex w-full flex-col gap-2">
           <label className="text-sm font-medium">{option.name}</label>
