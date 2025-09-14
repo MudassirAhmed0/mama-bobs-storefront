@@ -29,11 +29,11 @@ export default function RootLayout({
     <html lang="en">
       <Providers>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto max-w-6xl py-10`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased  `}
         >
           <Toaster />
           <Navbar />
-          {children}
+          <div className="container mx-auto">{children}</div>
         </body>
       </Providers>
     </html>
