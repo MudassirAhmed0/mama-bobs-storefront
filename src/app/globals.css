@@ -2,12 +2,301 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --yellow: #ca8a04;
+
+  /* VIEW PORT UNITS  */
+  --vw1: 0.06944vw;
+  --vw2: 0.13889vw;
+  --vw3: 0.20833vw;
+  --vw4: 0.27778vw;
+  --vw5: 0.34722vw;
+  --vw6: 0.41667vw;
+  --vw7: 0.48611vw;
+  --vw8: 0.55556vw;
+  --vw9: 0.625vw;
+  --vw10: 0.69444vw;
+  --vw11: 0.76389vw;
+  --vw12: 0.83333vw;
+  --vw13: 0.90278vw;
+  --vw14: 0.97222vw;
+  --vw15: 1.04167vw;
+  --vw16: 1.11111vw;
+  --vw17: 1.18056vw;
+  --vw18: 1.25vw;
+  --vw19: 1.31944vw;
+  --vw20: 1.38889vw;
+  --vw21: 1.45833vw;
+  --vw22: 1.52778vw;
+  --vw23: 1.59722vw;
+  --vw24: 1.66667vw;
+  --vw25: 1.73611vw;
+  --vw26: 1.80556vw;
+  --vw27: 1.875vw;
+  --vw28: 1.94444vw;
+  --vw29: 2.01389vw;
+  --vw30: 2.08333vw;
+  --vw31: 2.15278vw;
+  --vw32: 2.22222vw;
+  --vw33: 2.29167vw;
+  --vw34: 2.36111vw;
+  --vw35: 2.43056vw;
+  --vw36: 2.5vw;
+  --vw37: 2.56944vw;
+  --vw38: 2.63889vw;
+  --vw39: 2.70833vw;
+  --vw40: 2.77778vw;
+  --vw41: 2.84722vw;
+  --vw42: 2.91667vw;
+  --vw43: 2.98611vw;
+  --vw44: 3.05556vw;
+  --vw45: 3.125vw;
+  --vw46: 3.19444vw;
+  --vw47: 3.26389vw;
+  --vw48: 3.33333vw;
+  --vw49: 3.40278vw;
+  --vw50: 3.47222vw;
+  --vw51: 3.54167vw;
+  --vw52: 3.61111vw;
+  --vw53: 3.68056vw;
+  --vw54: 3.75vw;
+  --vw55: 3.81944vw;
+  --vw56: 3.88889vw;
+  --vw57: 3.95833vw;
+  --vw58: 4.02778vw;
+  --vw59: 4.09722vw;
+  --vw60: 4.16667vw;
+  --vw61: 4.23611vw;
+  --vw62: 4.30556vw;
+  --vw63: 4.375vw;
+  --vw64: 4.44444vw;
+  --vw65: 4.51389vw;
+  --vw66: 4.58333vw;
+  --vw67: 4.65278vw;
+  --vw68: 4.72222vw;
+  --vw69: 4.79167vw;
+  --vw70: 4.86111vw;
+  --vw71: 4.93056vw;
+  --vw72: 5vw;
+  --vw73: 5.06944vw;
+  --vw74: 5.13889vw;
+  --vw75: 5.20833vw;
+  --vw76: 5.27778vw;
+  --vw77: 5.34722vw;
+  --vw78: 5.41667vw;
+  --vw79: 5.48611vw;
+  --vw80: 5.55556vw;
+  --vw81: 5.625vw;
+  --vw82: 5.69444vw;
+  --vw83: 5.76389vw;
+  --vw84: 5.83333vw;
+  --vw85: 5.90278vw;
+  --vw86: 5.97222vw;
+  --vw87: 6.04167vw;
+  --vw88: 6.11111vw;
+  --vw89: 6.18056vw;
+  --vw90: 6.25vw;
+  --vw91: 6.31944vw;
+  --vw92: 6.38889vw;
+  --vw93: 6.45833vw;
+  --vw94: 6.52778vw;
+  --vw95: 6.59722vw;
+  --vw96: 6.66667vw;
+  --vw97: 6.73611vw;
+  --vw98: 6.80556vw;
+  --vw99: 6.875vw;
+  --vw100: 6.94444vw;
+  --vw101: 7.01389vw;
+  --vw102: 7.08333vw;
+  --vw103: 7.15278vw;
+  --vw104: 7.22222vw;
+  --vw105: 7.29167vw;
+  --vw106: 7.36111vw;
+  --vw107: 7.43056vw;
+  --vw108: 7.5vw;
+  --vw109: 7.56944vw;
+  --vw110: 7.63889vw;
+  --vw111: 7.70833vw;
+  --vw112: 7.77778vw;
+  --vw113: 7.84722vw;
+  --vw114: 7.91667vw;
+  --vw115: 7.98611vw;
+  --vw116: 8.05556vw;
+  --vw117: 8.125vw;
+  --vw118: 8.19444vw;
+  --vw119: 8.26389vw;
+  --vw120: 8.33333vw;
+  --vw121: 8.40278vw;
+  --vw122: 8.47222vw;
+  --vw123: 8.54167vw;
+  --vw124: 8.61111vw;
+  --vw125: 8.68056vw;
+  --vw126: 8.75vw;
+  --vw127: 8.81944vw;
+  --vw128: 8.88889vw;
+  --vw129: 8.95833vw;
+  --vw130: 9.02778vw;
+  --vw131: 9.09722vw;
+  --vw132: 9.16667vw;
+  --vw133: 9.23611vw;
+  --vw134: 9.30556vw;
+  --vw135: 9.375vw;
+  --vw136: 9.44444vw;
+  --vw137: 9.51389vw;
+  --vw138: 9.58333vw;
+  --vw139: 9.65278vw;
+  --vw140: 9.72222vw;
+  --vw141: 9.79167vw;
+  --vw142: 9.86111vw;
+  --vw143: 9.93056vw;
+  --vw144: 10vw;
+  --vw145: 10.06944vw;
+  --vw146: 10.13889vw;
+  --vw147: 10.20833vw;
+  --vw148: 10.27778vw;
+  --vw149: 10.34722vw;
+  --vw150: 10.41667vw;
+  --vw151: 10.48611vw;
+  --vw152: 10.55556vw;
+  --vw153: 10.625vw;
+  --vw154: 10.69444vw;
+  --vw155: 10.76389vw;
+  --vw156: 10.83333vw;
+  --vw157: 10.90278vw;
+  --vw158: 10.97222vw;
+  --vw159: 11.04167vw;
+  --vw160: 11.11111vw;
+  --vw161: 11.18056vw;
+  --vw162: 11.25vw;
+  --vw163: 11.31944vw;
+  --vw164: 11.38889vw;
+  --vw165: 11.45833vw;
+  --vw166: 11.52778vw;
+  --vw167: 11.59722vw;
+  --vw168: 11.66667vw;
+  --vw169: 11.73611vw;
+  --vw170: 11.80556vw;
+  --vw171: 11.875vw;
+  --vw172: 11.94444vw;
+  --vw173: 12.01389vw;
+  --vw174: 12.08333vw;
+  --vw175: 12.15278vw;
+  --vw176: 12.22222vw;
+  --vw177: 12.29167vw;
+  --vw178: 12.36111vw;
+  --vw179: 12.43056vw;
+  --vw180: 12.5vw;
+  --vw181: 12.56944vw;
+  --vw182: 12.63889vw;
+  --vw183: 12.70833vw;
+  --vw184: 12.77778vw;
+  --vw185: 12.84722vw;
+  --vw186: 12.91667vw;
+  --vw187: 12.98611vw;
+  --vw188: 13.05556vw;
+  --vw189: 13.125vw;
+  --vw190: 13.19444vw;
+  --vw191: 13.26389vw;
+  --vw192: 13.33333vw;
+  --vw193: 13.40278vw;
+  --vw194: 13.47222vw;
+  --vw195: 13.54167vw;
+  --vw196: 13.61111vw;
+  --vw197: 13.68056vw;
+  --vw198: 13.75vw;
+  --vw199: 13.81944vw;
+  --vw200: 13.88889vw;
 }
 
-@layer base {
-  :root {
-    --radius: 0.5rem;
+@font-face {
+  font-family: "BubbleFont";
+  src: url("/fonts/bubble-font.ttf");
+}
+
+.bubble-font {
+  font-family: "BubbleFont", sans-serif;
+}
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@layer components {
+  .fullVh.fullSvh {
+    @apply min-h-[100vh] min-h-[100svh];
   }
+  .myContainer {
+    @apply lg:w-[91.6666666667vw] w-[90.699%] mx-[auto];
+  }
+  .py1 {
+    @apply lg:py-[11.4583333333vw] sm:py-[120px] py-[75px];
+  }
+  .border20 {
+    @apply lg:rounded-[1.04166666667vw] rounded-[20px];
+  }
+  .text64 {
+    @apply lg:text-[3.33333333333vw] lg:leading-[3.95833333333vw] sm:text-[50px] sm:leading-[60px]
+    text-[7.44186046512vw] leading-[42px] capitalize font-[600];
+  }
+  .text40 {
+    @apply lg:text-[2.08333333333vw] lg:leading-[2.60416666667vw] sm:text-[30px] sm:leading-[40px]
+    text-[25px] leading-[35px] capitalize;
+  }
+  .text50 {
+    @apply lg:text-[2.60416666667vw] lg:leading-[3.125vw] sm:text-[40px] sm:leading-[50px]
+    text-[32px] leading-[42px] capitalize font-medium;
+  }
+  .text60 {
+    @apply lg:text-[3.125vw] lg:leading-[3.64583333333vw] sm:text-[50px] sm:leading-[60px]
+    text-[32px] leading-[42px] capitalize font-semibold;
+  }
+  .text24 {
+    @apply lg:text-[1.25vw] lg:leading-[1.77083333333vw];
+  }
+  .mtext18 {
+    @apply sm:text-[20px] sm:leading-[30px] text-[18px] leading-[25px];
+  }
+  .mt30 {
+    @apply lg:mt-[1.5625vw] sm:mt-[22px] mt-[16px];
+  }
+}
+.search-overlay {
+  animation: search-fade 250ms linear forwards;
+  animation-delay: 300ms;
+}
+
+.opacity_Hover:hover {
+  opacity: 0.7;
+}
+.opacity_Hover {
+  transition: all 0.3s;
+}
+@keyframes search-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 1024px) {
+  body.active {
+    height: 100svh;
+    overflow: hidden;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 500s linear infinite;
 }

@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
 import Navbar from "@/components/view/Navbar";
 import Providers from "@/providers";
 import { Toaster } from "@/components/ui/sonner";
+import Hero from "@/components/home/hero/Hero";
+import About from "@/components/home/about/About";
+import FeaturedProducts from "@/components/home/featured-products/FeaturedProducts";
+import Values from "@/components/home/values/Values";
+import Gallery from "@/components/home/gallery/Gallery";
+import Testimonials from "@/components/home/testimonials/Testimonials";
+import Cta from "@/components/home/cta/Cta";
+import Layout from "@/components/layout/Index";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +43,8 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased  `}
         >
           <Toaster />
-          <Navbar />
-          <div className="container mx-auto">{children}</div>
+
+          <Layout>{children}</Layout>
         </body>
       </Providers>
     </html>
