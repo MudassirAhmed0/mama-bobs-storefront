@@ -1,13 +1,7 @@
-import Layout from "@/components/layout/Index";
-import ShopPage from "@/components/shop/Index";
-import React from "react";
+import AllProducts from "@/components/view/AllProducts";
 
 const page = () => {
-  return (
-    // <Layout>
-    <ShopPage />
-    // </Layout>
-  );
+  return <AllProducts />;
 };
 
 export default page;

@@ -26,7 +26,7 @@ const navLinks = [
   },
   {
     title: "Top 20",
-    link: "/design-your-tee",
+    link: "/shop",
     anchor: true,
   },
   {

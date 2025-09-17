@@ -31,10 +31,15 @@ const AllProducts = () => {
 
   return (
     <div className="grid grid-cols-2 gap-6 w-full my-10">
-      {data?.products?.edges.map(item=>{
-        return<Link href={"/product/"+item.node.handle}>
-          <span>{item.node.title}</span>
-         {item.node.media.nodes.length > 0 && <img src={item.node.media.nodes[0].previewImage?.url} alt="img"/>}          </Link>
+      {data?.products?.edges.map((item) => {
+        return (
+          <Link href={"/shop/product/" + item.node.handle}>
+            <span>{item.node.title}</span>
+            {item.node.media.nodes.length > 0 && (
+              <img src={item.node.media.nodes[0].previewImage?.url} alt="img" />
+            )}{" "}
+          </Link>
+        );
       })}
     </div>
   );
