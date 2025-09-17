@@ -20,7 +20,7 @@ const AllProducts = () => {
   console.log(data);
   if (isLoading) {
     return (
-      <div className="grid grid-cols-2 gap-6 w-full my-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Skeleton className="h-[300px] w-full" />
         <Skeleton className="h-[300px] w-full" />
         <Skeleton className="h-[300px] w-full" />
@@ -30,14 +30,35 @@ const AllProducts = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-6 w-full my-10">
-      {data?.products?.edges.map((item) => {
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {data?.products?.edges.map((item, index) => {
         return (
-          <Link href={"/shop/product/" + item.node.handle}>
-            <span>{item.node.title}</span>
+          <Link
+            key={index}
+            className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all cursor-pointer"
+            href={"/shop/product/" + item.node.handle}
+          >
             {item.node.media.nodes.length > 0 && (
-              <img src={item.node.media.nodes[0].previewImage?.url} alt="img" />
+              <div className="relative h-64 bg-gray-100">
+                <img
+                  src={item.node.media.nodes[0].previewImage?.url}
+                  alt="img"
+                  className="w-full h-full object-contain transition-opacity duration-300"
+                />
+              </div>
             )}{" "}
+            <div className="p-4">
+              <h3 className="font-semibold text-lg">{item.node.title}</h3>
+              <div className="flex justify-between items-center mt-2">
+                {/* <span className="text-gray-700">Color: {tee.color}</span> */}
+                <span className="text-gray-700">Color: Navy blue</span>
+
+                <span className="font-bold text-xl">
+                  {/* ${tee.price.toFixed(2)} */}
+                  $25.99
+                </span>
+              </div>
+            </div>
           </Link>
         );
       })}

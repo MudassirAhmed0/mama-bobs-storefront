@@ -47,7 +47,7 @@ const Product = () => {
       variables: { handle: params.handle },
     }
   );
-console.log(data)
+  console.log(data);
   if (isLoading)
     return (
       <div className="my-10 grid grid-cols-2 md:grid-cols-3 gap-4">
