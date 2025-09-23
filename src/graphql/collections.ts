@@ -83,13 +83,7 @@ export const GET_COLLECTION_BY_HANDLE_WITH_PAGINATION_QUERY = gql`
             }
             options {
               name
-              optionValues {
-                id
-                name
-                swatch {
-                  color
-                }
-              }
+              optionValues: values # 👈 alias values → optionValues
             }
             variants(first: 100) {
               edges {

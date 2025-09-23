@@ -1,5 +1,4 @@
 import { gql } from "graphql-tag";
-
 export const GET_PRODUCT_BY_HANDLE_QUERY = gql`
   query GetProductByHandle($handle: String!) {
     product(handle: $handle) {
@@ -30,13 +29,7 @@ export const GET_PRODUCT_BY_HANDLE_QUERY = gql`
       }
       options {
         name
-        optionValues {
-          id
-          name
-          swatch {
-            color
-          }
-        }
+        optionValues: values # 👈 alias again
       }
       variants(first: 100) {
         edges {

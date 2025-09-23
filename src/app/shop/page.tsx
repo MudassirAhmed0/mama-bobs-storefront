@@ -1,7 +1,14 @@
 import AllProducts from "@/components/view/AllProducts";
 
 const page = () => {
-  return <AllProducts />;
+  return (
+    <>
+      <h1 className="text64 font-bold text-center mb-8">
+        Coming to a wardrobe near you
+      </h1>
+      <AllProducts />
+    </>
+  );
 };
 
 export default page;

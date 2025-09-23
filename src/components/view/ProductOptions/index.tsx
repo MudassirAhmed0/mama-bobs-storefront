@@ -32,19 +32,18 @@ const ProductOptions = ({
       case "color":
         return (
           <div className="flex items-center gap-2">
-            {option.optionValues.map((value) => (
+            {option?.optionValues?.map((value) => (
               <Button
-                key={value.id}
+                key={value}
                 className={cn(
                   "p-0 transition-all duration-300 ease-in-out hover:scale-[1.05]",
                   {
-                    "ring-1 ring-black":
-                      selectedOptions[option.name] === value.name,
+                    "ring-1 ring-black": selectedOptions[option.name] === value,
                   }
                 )}
-                onClick={() => handleOptionChange(option.name, value.name)}
+                onClick={() => handleOptionChange(option.name, value)}
                 style={{
-                  backgroundColor: value.name,
+                  backgroundColor: value,
                   width: "24px",
                   height: "24px",
                   borderRadius: "100%",
@@ -57,25 +56,22 @@ const ProductOptions = ({
       case "size":
         return (
           <div className="flex flex-wrap gap-2">
-            {option.optionValues.map((value) => (
+            {option?.optionValues?.map((value) => (
               <Button
-                key={value.id}
+                key={value}
                 size="sm"
                 variant={
-                  selectedOptions[option.name] === value.name
-                    ? "default"
-                    : "outline"
+                  selectedOptions[option.name] === value ? "default" : "outline"
                 }
                 className={cn(
                   "transition-all duration-300 ease-in-out hover:scale-[1.05]",
                   {
-                    "ring-1 ring-black":
-                      selectedOptions[option.name] === value.name,
+                    "ring-1 ring-black": selectedOptions[option.name] === value,
                   }
                 )}
-                onClick={() => handleOptionChange(option.name, value.name)}
+                onClick={() => handleOptionChange(option.name, value)}
               >
-                {value.name}
+                {value}
               </Button>
             ))}
           </div>
@@ -84,7 +80,7 @@ const ProductOptions = ({
       default:
         return (
           <div className="flex flex-wrap gap-2">
-            {option.optionValues.map((value) => (
+            {option?.optionValues?.map((value) => (
               <Button
                 key={value.id}
                 variant={
@@ -110,7 +106,7 @@ const ProductOptions = ({
 
   return (
     <div className="flex flex-col w-full gap-4">
-      {options.map((option) => (
+      {options?.map((option) => (
         <div key={option.name} className="flex w-full flex-col gap-2">
           <label className="text-sm font-medium">{option.name}</label>
           {renderOptionUI(option, isGlass)}

@@ -22,7 +22,7 @@ import CartSidebar from "@/components/view/cart/CartSidebar";
 const navLinks = [
   {
     title: "Feature Products",
-    link: "/shop",
+    link: "/feature-product",
   },
   {
     title: "Top 20",
@@ -221,7 +221,7 @@ const Navbar = () => {
             />
           </div> */}
           <div className="flex items-center gap-x-2">
-            <div className="flex items-center">
+            <div className="flex items-center relative">
               <Button
                 className="p-0 bg-transparent text-black hover:text-yellow hover:bg-transparent size-[unset]"
                 onClick={() => setOpen(true)}
@@ -230,7 +230,7 @@ const Navbar = () => {
                 <ShoppingCart />
               </Button>
               {count > 0 && (
-                <Badge variant="default" className="absolute -top-2 right-0">
+                <Badge variant="default" className="absolute -top-4 -right-4">
                   {count}
                 </Badge>
               )}

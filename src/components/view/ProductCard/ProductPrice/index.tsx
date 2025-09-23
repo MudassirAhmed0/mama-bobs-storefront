@@ -5,6 +5,7 @@ import React from "react";
 
 const ProductPrice = ({ priceRange }: { priceRange: ProductPriceRange }) => {
   const formatPrice = (amount: string, currencyCode: string) => {
+    if (!currencyCode || !amount) return;
     return new Intl.NumberFormat(undefined, {
       style: "currency",
       currency: currencyCode,
@@ -17,18 +18,18 @@ const ProductPrice = ({ priceRange }: { priceRange: ProductPriceRange }) => {
       <div className="flex items-center gap-2 font-semibold">
         <p suppressHydrationWarning className="text-lg">
           {formatPrice(
-            priceRange.minVariantPrice.amount,
-            priceRange.minVariantPrice.currencyCode
+            priceRange?.minVariantPrice?.amount,
+            priceRange?.minVariantPrice?.currencyCode
           )}
         </p>
 
-        {priceRange.maxVariantPrice.amount !==
-          priceRange.minVariantPrice.amount && (
+        {priceRange?.maxVariantPrice?.amount !==
+          priceRange?.minVariantPrice?.amount && (
           <p suppressHydrationWarning className="text-lg text-gray-600">
             -{" "}
             {formatPrice(
-              priceRange.maxVariantPrice.amount,
-              priceRange.maxVariantPrice.currencyCode
+              priceRange?.maxVariantPrice?.amount,
+              priceRange?.maxVariantPrice?.currencyCode
             )}
           </p>
         )}
