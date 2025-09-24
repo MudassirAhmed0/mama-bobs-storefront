@@ -7,29 +7,26 @@ const FaqsPage = () => {
   const faqs = [
     {
       question: "Do we offer international shipping?",
-      answer: "yes on orders of 3 items or more",
+      answer: "Yes, on orders of 3 items or more",
     },
     {
       question: "Can I track my order?",
       answer:
-        "yes you will receive a tracking link , once your order is shipped",
+        "Yes, you will receive a tracking link, once your order is shipped",
     },
     {
       question: "What payment methods do you accept?",
-      answer: "list of all payment: Credit / Debit Card, PayPal, Bank Transfer",
+      answer: "List of all payment: Credit / Debit Card Master & Visa",
     },
     {
       question: "Can I contact customer support?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Absolutely. Tel: (415) 555-0132 Email: admin@mamabobs.com",
     },
-    {
-      question: " Do we offer discount on bulk orders?",
-      answer: "should come off!!",
-    },
+    
     {
       question: "Can I change or cancel my order?",
-      answer: "should come off!!",
+      answer: "Absolutely. You Can just contact us. Tel: (415) 555-0132 Email: admin@mamabobs.com",
     },
     {
       question: "How long does delivery take?",
@@ -43,7 +40,7 @@ const FaqsPage = () => {
     },
 
     {
-      question: "what is our return policy?",
+      question: "What is our return policy?",
       answer:
         "God knows why you want to return a piece of MAMA BOBS quality apparel. But if you do, any item can be returned within 30 days of purchase.",
     },

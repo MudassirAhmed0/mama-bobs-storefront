@@ -9,6 +9,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { GET_ALL_PORDUCTS } from "@/graphql/allproducts";
 import Link from "next/link";
+import { formatPrice } from "../ProductCard/ProductPrice";
 const AllProducts = () => {
   const router = useRouter();
   const { data, isLoading } = useStorefrontQuery<GetProductsQuery>(
@@ -51,11 +52,13 @@ const AllProducts = () => {
               <h3 className="font-semibold text-lg">{item.node.title}</h3>
               <div className="flex justify-between items-center mt-2">
                 {/* <span className="text-gray-700">Color: {tee.color}</span> */}
-                <span className="text-gray-700">Color: Navy blue</span>
 
                 <span className="font-bold text-xl">
                   {/* ${tee.price.toFixed(2)} */}
-                  $25.99
+                  {formatPrice(
+                    item.node.priceRange.maxVariantPrice.amount,
+                    item.node.priceRange.maxVariantPrice.currencyCode
+                  )}
                 </span>
               </div>
             </div>

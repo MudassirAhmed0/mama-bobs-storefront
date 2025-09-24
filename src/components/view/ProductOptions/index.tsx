@@ -38,11 +38,13 @@ const ProductOptions = ({
                 className={cn(
                   "p-0 transition-all duration-300 ease-in-out hover:scale-[1.05]",
                   {
-                    "ring-1 ring-black": selectedOptions[option.name] === value,
+                    "border border-black":
+                      selectedOptions[option.name] === value,
                   }
                 )}
                 onClick={() => handleOptionChange(option.name, value)}
                 style={{
+                  boxShadow: "0 2px 15px 0 rgba(0,0,0,0.2)",
                   backgroundColor: value,
                   width: "24px",
                   height: "24px",

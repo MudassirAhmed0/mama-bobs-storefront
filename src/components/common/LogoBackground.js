@@ -8,7 +8,7 @@ const LogoBackground = () => {
         backgroundPosition: "center",
         backgroundRepeat: "repeat",
         
-      }} className="fixed top-0 left-0 w-full h-full bg-black opacity-20"></div>
+      }} className="fixed top-0 left-0 w-full h-full bg-black opacity-20 pointer-events-none"></div>
   )
 }
 
