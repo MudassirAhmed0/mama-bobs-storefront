@@ -1,14 +1,13 @@
 "use client";
 import { FaWhatsapp } from "react-icons/fa";
 
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { GET_PRODUCT_BY_HANDLE_QUERY } from "@/graphql/products";
 import { useStorefrontQuery } from "@/hooks/useStorefront";
 import {
   GetProductByHandleQuery,
   ImageEdge,
-  ProductOption,
   ProductPriceRange,
   ProductVariant,
 } from "@/types/shopify-graphql";
@@ -20,10 +19,11 @@ import ProductOptions from "@/components/view/ProductOptions";
 import { useCartActions } from "@/lib/atoms/cart";
 import Accordion from "./Accordion";
 import SizeChartPopup from "./SizeChartPopup";
+import { toast } from "sonner";
 
 const Product = () => {
   const params = useParams();
-  const { addItem } = useCartActions();
+  const { cart, addItem, initializeCart } = useCartActions();
   const [isOpen, setIsOpen] = useState(false);
   // States
   const [selectedOptions, setSelectedOptions] = useState<
@@ -32,15 +32,20 @@ const Product = () => {
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant>();
 
   const handleSelectOptions = (options: Record<string, string>) => {
+    setSelectedOptions(options);
+    const totalOptions = data?.product?.options?.length ?? 0;
+    const hasAllSelections =
+      Object.keys(options).length === totalOptions && totalOptions > 0;
+    if (!hasAllSelections) {
+      setSelectedVariant(undefined);
+      return;
+    }
     const variant = data?.product?.variants?.edges.find((variant) => {
-      return Object.keys(options).every((key) => {
-        return variant.node.selectedOptions.some(
-          (option) => option.name === key && option.value === options[key]
-        );
-      });
+      return variant.node.selectedOptions.every(
+        (opt) => options[opt.name] === opt.value
+      );
     });
     setSelectedVariant(variant?.node as ProductVariant);
-    setSelectedOptions(options);
   };
 
   const { data, isLoading } = useStorefrontQuery<GetProductByHandleQuery>(
@@ -50,6 +55,9 @@ const Product = () => {
       variables: { handle: params.handle },
     }
   );
+  useEffect(() => {
+    if (!cart?.checkoutUrl) initializeCart();
+  }, [cart?.checkoutUrl, initializeCart]);
   console.log(data);
   if (isLoading)
     return (
@@ -59,10 +67,16 @@ const Product = () => {
       </div>
     );
 
-  const handleAddtoCart = () => {
-    if (selectedVariant) {
-      addItem(selectedVariant.id, 1);
+  const handleAddtoCart = async () => {
+    const totalOptions = data?.product?.options?.length ?? 0;
+    const hasAllSelections =
+      Object.keys(selectedOptions).length === totalOptions && totalOptions > 0;
+    if (!hasAllSelections || !selectedVariant) {
+      toast.error("Please select both color and size before adding to cart.");
+      return;
     }
+    await addItem(selectedVariant.id, 1);
+    toast.success("Added to cart");
   };
   const Accordions = [
     {
@@ -103,14 +117,16 @@ const Product = () => {
           <ProductOptions
             selectedOptions={selectedOptions}
             setSelectedOptions={handleSelectOptions}
-            options={data?.product?.options as ProductOption[]}
+            options={
+              data?.product?.options as NonNullable<
+                GetProductByHandleQuery["product"]
+              >["options"]
+            }
           />
           <ProductPrice
             priceRange={data?.product?.priceRange as ProductPriceRange}
           />
-          <Button disabled={!selectedVariant} onClick={handleAddtoCart}>
-            Add to Cart
-          </Button>
+          <Button onClick={handleAddtoCart}>Add to Cart</Button>
           <SizeChartPopup />
         </div>
         {Accordions.map((item, index) => (

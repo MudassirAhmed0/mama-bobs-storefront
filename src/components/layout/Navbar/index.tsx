@@ -61,15 +61,12 @@ const Navbar = () => {
     // Initialize Lenis
     const lenis = new Lenis({
       // duration: 1.2,
-
       // easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
-      smoothTouch: true, // Ensure touchpad support
-      gestureOrientation: "both", // Supports both vertical & horizontal gestures
-    });
+    } as any);
 
     // Use requestAnimationFrame to continuously update the scroll
-    function raf(time) {
+    function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
@@ -80,7 +77,7 @@ const Navbar = () => {
   function toggleSidebar() {
     if (!isDesktop) {
       const body = document.querySelector("body");
-      body.classList.toggle("active");
+      if (body) body.classList.toggle("active");
       setIsSidebarOpen(!isSidebarOpen);
     }
   }
@@ -221,9 +218,9 @@ const Navbar = () => {
             />
           </div> */}
           <div className="flex items-center gap-x-2">
-            <div className="flex items-center">
+            <div className="flex items-center relative">
               <Button
-                className="p-0 bg-transparent text-black hover:text-yellow hover:bg-transparent size-[unset]"
+                className="p-0  bg-transparent text-black hover:text-yellow hover:bg-transparent size-[unset]"
                 onClick={() => setOpen(true)}
                 aria-label="Open cart"
               >

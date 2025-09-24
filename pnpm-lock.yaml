@@ -50,6 +50,9 @@ importers:
       graphql-request:
         specifier: ^7.1.2
         version: 7.2.0(graphql@16.11.0)
+      graphql-tag:
+        specifier: ^2.12.6
+        version: 2.12.6(graphql@16.11.0)
       icons:
         specifier: ^1.0.0
         version: 1.0.0
@@ -75,7 +78,7 @@ importers:
         specifier: ^19.1.1
         version: 19.1.1
       react-dom:
-        specifier: ^19.0.0
+        specifier: ^19.1.1
         version: 19.1.1(react@19.1.1)
       react-hook-form:
         specifier: ^7.54.2

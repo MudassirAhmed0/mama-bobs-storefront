@@ -1,30 +1,40 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Product } from "@/types/shopify-graphql";
+import { GetCollectionByHandleQuery, Product } from "@/types/shopify-graphql";
 import React from "react";
 import Image from "next/image";
 import ProductPrice from "./ProductPrice";
 import { useRouter } from "next/navigation";
 
-const ProductCard = ({ product }: { product: Product }) => {
+type CollectionProductNode = NonNullable<
+  GetCollectionByHandleQuery["collection"]
+>["products"]["edges"][number]["node"];
+
+type ProductCardProps = {
+  product: Product | CollectionProductNode;
+};
+
+const ProductCard = ({ product }: ProductCardProps) => {
   const router = useRouter();
   return (
     <div
       role="button"
       className="flex flex-col gap-2"
-      onClick={() => router.push(`/product/${product.handle}`)}
+      onClick={() => router.push(`/shop/product/${product.handle}`)}
     >
       <div className="relative w-full h-[300px] rounded-lg overflow-hidden border border-gray-100">
-        <Image
-          src={product.featuredImage?.url ?? null}
-          alt={product.featuredImage?.altText ?? ""}
-          layout="fill"
-          className="w-full h-full object-cover"
-        />
+        {product?.featuredImage?.url && (
+          <Image
+            src={product.featuredImage.url}
+            alt={(product as Product).featuredImage?.altText ?? ""}
+            layout="fill"
+            className="w-full h-full object-cover"
+          />
+        )}
       </div>
       <h1>{product.title}</h1>
-      <ProductPrice priceRange={product.priceRange} />
+      <ProductPrice priceRange={(product as Product).priceRange} />
       <Button>Add to Cart</Button>
     </div>
   );

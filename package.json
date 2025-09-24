@@ -23,6 +23,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.5.2",
     "graphql": "^16.10.0",
+    "graphql-tag": "^2.12.6",
     "graphql-request": "^7.1.2",
     "icons": "^1.0.0",
     "jotai": "^2.11.1",

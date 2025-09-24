@@ -1,15 +1,20 @@
-import Layout from "@/components/layout/Index";
-import Productpage from "@/components/product/Index";
-import { products } from "@/utils/products";
 import React from "react";
 
-const Product = ({ params: { slug } }) => {
-  const product = products.find((product) => product.id.toString() === slug);
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
 
+const Product = async ({ params }: PageProps) => {
+  const { slug } = await params;
   return (
-    // <Layout>
-    <Productpage />
-    // </Layout>
+    <div className="container mx-auto px-6 py-10">
+      <h1 className="text-2xl font-bold">Feature product</h1>
+      <p className="text-gray-600">Product slug: {slug}</p>
+      <p className="mt-2 text-sm text-gray-500">
+        This page is a placeholder. Hook it up to your product data or reuse the
+        existing shop product page component.
+      </p>
+    </div>
   );
 };
 

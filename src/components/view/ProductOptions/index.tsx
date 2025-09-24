@@ -37,10 +37,10 @@ const ProductOptions = ({
                 key={value}
                 className={cn(
                   "p-0 transition-all duration-300 ease-in-out hover:scale-[1.05]",
-                  {
-                    "border border-black":
-                      selectedOptions[option.name] === value,
-                  }
+                  selectedOptions[option.name] === value &&
+                    (value.toLowerCase() === "black"
+                      ? "border-2 border-green-400"
+                      : "border-2 border-black")
                 )}
                 onClick={() => handleOptionChange(option.name, value)}
                 style={{
@@ -84,21 +84,20 @@ const ProductOptions = ({
           <div className="flex flex-wrap gap-2">
             {option?.optionValues?.map((value) => (
               <Button
-                key={value.id}
+                key={value}
                 variant={
-                  selectedOptions[option.name] === value.name
+                  selectedOptions[option.name] === value
                     ? "default"
                     : isGlass
                     ? "ghost"
                     : "outline"
                 }
                 className={cn("transition-all duration-300 ease-in-out", {
-                  "ring-1 ring-black":
-                    selectedOptions[option.name] === value.name,
+                  "ring-1 ring-black": selectedOptions[option.name] === value,
                 })}
-                onClick={() => handleOptionChange(option.name, value.name)}
+                onClick={() => handleOptionChange(option.name, value)}
               >
-                {value.name}
+                {value}
               </Button>
             ))}
           </div>
@@ -110,7 +109,9 @@ const ProductOptions = ({
     <div className="flex flex-col w-full gap-4">
       {options?.map((option) => (
         <div key={option.name} className="flex w-full flex-col gap-2">
-          <label className="text-sm font-medium">{option.name}</label>
+          <label className="text-sm font-medium font-bold capitalize">
+            <strong> {option.name}</strong>
+          </label>
           {renderOptionUI(option, isGlass)}
         </div>
       ))}

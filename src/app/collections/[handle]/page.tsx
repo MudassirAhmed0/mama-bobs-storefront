@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import ProductCard from "@/components/view/ProductCard";
 import { GET_COLLECTION_BY_HANDLE_WITH_PAGINATION_QUERY } from "@/graphql/collections";
 import { useStorefrontQuery } from "@/hooks/useStorefront";
-import { GetCollectionByHandleQuery, Product } from "@/types/shopify-graphql";
+import { GetCollectionByHandleQuery } from "@/types/shopify-graphql";
 import { useParams } from "next/navigation";
 import {
   Pagination,
@@ -68,10 +68,7 @@ const CollectionPage = () => {
       <h1 className="text-2xl font-bold">{data?.collection?.title}</h1>
       <div className="grid grid-cols-3 gap-6">
         {data?.collection?.products?.edges?.map((product) => (
-          <ProductCard
-            key={product?.node?.id}
-            product={product.node as Product}
-          />
+          <ProductCard key={product?.node?.id} product={product.node} />
         ))}
       </div>
       <Pagination>

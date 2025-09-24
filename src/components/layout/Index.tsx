@@ -5,7 +5,7 @@ interface LayoutProps {
   children: React.ReactNode;
   footerSecondLogo?: boolean;
 }
-const Layout = ({ children, footerSecondLogo }: LayoutProps) => {
+const Layout = ({ children, footerSecondLogo = false }: LayoutProps) => {
   return (
     <>
       <Navbar />

@@ -1,3 +1,4 @@
+import React from "react";
 import { BookOpen, HeartHandshake, Landmark, Star, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +6,7 @@ import Link from "next/link";
 type BrandValue = {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 };
 
 const brandValues: BrandValue[] = [

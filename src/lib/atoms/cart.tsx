@@ -204,11 +204,35 @@ export const useCartActions = () => {
   const [cart, setCart] = useAtom(cartAtom);
 
   const addItem = async (merchandiseId: string, quantity: number) => {
-    const existingLineItem = cart.lines.edges.findIndex(
+    // Ensure we have a valid cart. If not, create one immediately
+    let ensuredCartId = cart?.id;
+    if (!ensuredCartId) {
+      try {
+        const newCart = await createCart();
+        ensuredCartId = newCart.id;
+        if (ensuredCartId) {
+          localStorage.setItem("cartId", ensuredCartId);
+          // Normalize new cart to expected shape with costs and totals
+          setCart({
+            id: newCart.id,
+            checkoutUrl: newCart.checkoutUrl || "",
+            note: "",
+            cost: initialCartState.cost,
+            lines: newCart.lines || { edges: [] },
+            totalQuantity: 0,
+          });
+        }
+      } catch (e) {
+        console.error("Failed to create cart before addItem", e);
+        return;
+      }
+    }
+
+    const existingLineItem = cart?.lines?.edges.findIndex(
       (edge) => edge.node.merchandise.id === merchandiseId
     );
 
-    if (existingLineItem >= 0) {
+    if (existingLineItem !== undefined && existingLineItem >= 0) {
       const existingLine = cart.lines.edges[existingLineItem];
       const updatedEdges = cart.lines.edges.map((edge, index) =>
         index === existingLineItem
@@ -222,7 +246,7 @@ export const useCartActions = () => {
           : edge
       );
 
-      await updateCartItems(cart.id, [
+      await updateCartItems(ensuredCartId as string, [
         {
           id: existingLine.node.id,
           quantity: existingLine.node.quantity + quantity,
@@ -250,11 +274,11 @@ export const useCartActions = () => {
         totalQuantity,
       });
     } else {
-      await addToCart(cart.id, [{ merchandiseId, quantity }]);
+      await addToCart(ensuredCartId as string, [{ merchandiseId, quantity }]);
       const { cart: updatedCart } = await fetchGraphQL(GET_CART, {
-        cartId: cart.id,
+        cartId: ensuredCartId,
       });
-      setCart(updatedCart);
+      setCart(updatedCart ?? initialCartState);
     }
   };
 
@@ -385,7 +409,21 @@ export const useCartActions = () => {
       }
 
       const { cart: fetchedCart } = await fetchGraphQL(GET_CART, { cartId });
-      setCart(fetchedCart);
+      if (fetchedCart) {
+        setCart(fetchedCart);
+      } else {
+        // Cart might have expired/been deleted server-side; create a new one
+        const newCart = await createCart();
+        localStorage.setItem("cartId", newCart.id);
+        setCart({
+          id: newCart.id,
+          checkoutUrl: newCart.checkoutUrl || "",
+          note: "",
+          cost: initialCartState.cost,
+          lines: newCart.lines || { edges: [] },
+          totalQuantity: 0,
+        });
+      }
     } catch (error) {
       console.error("Error initializing cart:", error);
     }
