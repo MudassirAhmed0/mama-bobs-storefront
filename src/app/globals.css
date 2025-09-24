@@ -261,7 +261,81 @@ body {
   .mt30 {
     @apply lg:mt-[1.5625vw] sm:mt-[22px] mt-[16px];
   }
+  ul.defaultList,
+  .defaultList ul {
+    @apply list-disc;
+  }
+  ol.defaultList,
+  .defaultList ol {
+    @apply list-decimal;
+  }
+  ol.defaultList li::marker,
+  .defaultList ol li::marker {
+    color: inherit;
+    font-size: inherit;
+  }
+  ul.defaultList li::marker,
+  .defaultList ul li::marker {
+    color: inherit;
+    font-size: initial;
+  }
+  ul.defaultList,
+  ol.defaultList,
+  .defaultList ul,
+  .defaultList ol {
+    @apply lg:pl-[1.66666666667vw] pl-[25px];
+  }
 }
+
+.accordion {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+.accordion {
+  @apply lg:text-vw18 lg:leading-vw27 text-[16px];
+}
+.accordion h4 {
+  @apply lg:text24 mtext18 font-bold;
+}
+.accordion-header {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.accordion-header:hover {
+  background: #f5f5f5;
+}
+
+.accordion-content {
+  padding: 1rem;
+  background: #fafafa;
+  animation: slideDown 0.3s ease;
+}
+
+.accordion-content p,
+.accordion-content li {
+  margin: 0.5rem 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .search-overlay {
   animation: search-fade 250ms linear forwards;
   animation-delay: 300ms;

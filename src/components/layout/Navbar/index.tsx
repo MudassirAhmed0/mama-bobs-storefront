@@ -221,7 +221,7 @@ const Navbar = () => {
             />
           </div> */}
           <div className="flex items-center gap-x-2">
-            <div className="flex items-center relative">
+            <div className="flex items-center">
               <Button
                 className="p-0 bg-transparent text-black hover:text-yellow hover:bg-transparent size-[unset]"
                 onClick={() => setOpen(true)}

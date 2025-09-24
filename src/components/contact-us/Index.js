@@ -112,7 +112,8 @@ const ContactUsSecondSection = () => {
                 rel="noopener noreferrer"
                 className="text-white"
               >
-                P.O. Box 1234, New York, NY
+                PO Box which is- PO Box 3149 283 west
+                street,Umina Beach NSW 2257
               </Link>
             </div>
           </div>

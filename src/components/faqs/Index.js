@@ -6,65 +6,46 @@ import LogoBackground from "../common/LogoBackground";
 const FaqsPage = () => {
   const faqs = [
     {
-      question: " What are dangleberries?",
-      answer:
-        "DANGLEBERRIE - bead of self produced  ecsrement that has attached itself to your hairy undercarriage! And dingle dangles in that region hence DANGLEBERRIE!!",
-    },
-
-    {
-      question: "What is our return policy?",
-      answer: "You can return any product within 30 days of purchase.",
-    },
-    {
       question: "Do we offer international shipping?",
-      answer: "Yes, we ship to multiple countries worldwide.",
+      answer: "yes on orders of 3 items or more",
     },
     {
-      question: " What is feltching and explanation?",
+      question: "Can I track my order?",
       answer:
-        "A sexual act term commonly used in the LGBTQIA+ community. It is in layman's terms when one homosexual male ejaculates in another homosexual males nether region orifice and then make the highly dubious decision to go and suck his deposit back out again!",
-    },
-
-    {
-      question: "How can I track my order?",
-      answer: "You will receive a tracking link once your order is shipped.",
+        "yes you will receive a tracking link , once your order is shipped",
     },
     {
-      question: "What payment methods do we accept?",
-      answer: "We accept credit/debit cards, PayPal, and Apple Pay.",
+      question: "What payment methods do you accept?",
+      answer: "list of all payment: Credit / Debit Card, PayPal, Bank Transfer",
     },
     {
-      question: "How do I contact customer support?",
-      answer: "You can reach us via email or our 24/7 chat support.",
-    },
-    {
-      question: "What is the meaning of life?",
+      question: "Can I contact customer support?",
       answer:
-        " The aim is to secure yourself a life of peace, contentment and love by living with positivity and above all in any situation- BE KIND! BE KIND! BE KIND!",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      question: "Do you offer discounts for bulk orders?",
-      answer:
-        "Yes, we provide special discounts for bulk purchases. Contact support for details.",
+      question: " Do we offer discount on bulk orders?",
+      answer: "should come off!!",
     },
     {
-      question: "Are the products covered under warranty?",
-      answer: "Yes, all our products come with a 1-year warranty.",
-    },
-    {
-      question: "Can I change or cancel my order after placing it?",
-      answer:
-        "Orders can be modified or canceled within 24 hours of placement.",
+      question: "Can I change or cancel my order?",
+      answer: "should come off!!",
     },
     {
       question: "How long does delivery take?",
       answer:
-        "Standard shipping takes 5-7 business days, while express shipping takes 2-3 business days.",
+        "will find out for sure when we know which courier we are going to use.",
     },
     {
-      question: "Do you have a loyalty program?",
+      question: " Do you have a loyalty program?",
       answer:
-        "Yes, we offer reward points for every purchase, which can be redeemed for discounts.",
+        " If you show your loyalty to the MAMA BOBS movement by sending us a photo of you wearing MAMA BOBS any photo that we use , you will receive 20% off on your next order. The stranger the place the larger the discount! ( THE GAUNTLET HAS BEEN THROWN DOWN!!)",
+    },
+
+    {
+      question: "what is our return policy?",
+      answer:
+        "God knows why you want to return a piece of MAMA BOBS quality apparel. But if you do, any item can be returned within 30 days of purchase.",
     },
   ];
   const [openIndex, setOpenIndex] = useState(0);
@@ -106,11 +87,8 @@ const FaqsPage = () => {
   };
 
   return (
-    <section
-     
-      className="lg:mt-[10.4583333333vw] lg:pt-20 mt-40 sm:mt-[240px] lg:pb-24 pb-24 bg-black border-b border-white"
-    >
-      <LogoBackground/>
+    <section className="lg:mt-[10.4583333333vw] lg:pt-20 mt-40 sm:mt-[240px] lg:pb-24 pb-24 bg-black border-b border-white">
+      <LogoBackground />
       <div className="myContainer lg:w-2/4">
         <h2 className="text60 text-white text-center">WHAT THE FAQ!!</h2>
         <div className="mt-12 flex flex-col gap-8 w-full">

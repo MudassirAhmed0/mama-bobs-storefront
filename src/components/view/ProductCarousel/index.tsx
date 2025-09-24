@@ -71,7 +71,7 @@ export default function ProductCarousel({ images }: { images: ImageEdge[] }) {
   if (!images) return null;
 
   return (
-    <div className="col-span-2 mx-auto grid w-full grid-cols-[auto_1fr] gap-x-4">
+    <div className="col-span-2 mx-auto grid w-full grid-cols-[auto_1fr] gap-x-4 lg:w-[50%]">
       {/* Thumbnail Carousel */}
       <div className="hidden overflow-hidden lg:block" ref={thumbCarouselRef}>
         <div className="grid grid-flow-row gap-y-2">
