@@ -84,7 +84,7 @@ const FaqsPage = () => {
   };
 
   return (
-    <section className="lg:mt-[10.4583333333vw] lg:pt-20 mt-40 sm:mt-[240px] lg:pb-24 pb-24 bg-black border-b border-white">
+    <section className="lg:mt-[8.6583333333vw] lg:pt-16 mt-40 sm:mt-[240px] lg:pb-24 pb-24 bg-black border-b border-white">
       <LogoBackground />
       <div className="myContainer lg:w-2/4">
         <h2 className="text60 text-white text-center">WHAT THE FAQ!!</h2>

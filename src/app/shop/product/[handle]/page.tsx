@@ -83,7 +83,7 @@ const Product = () => {
       title: "Shipping",
       content: `
         <h4>Delivery Policy</h4>
-        <p>We offer delivery all across Pakistan within <b>3 to 5 working days</b>. Once your order is confirmed, it will be processed and shipped promptly. You will receive a tracking number as soon as your parcel is dispatched.</p>
+        <p>Currently we are doing only Interstate deliveries within <b>3 to 5 working days</b>. Once your order is confirmed, it will be processed and shipped promptly. You will receive a tracking number as soon as your parcel is dispatched.</p>
         <h4>Note</h4>
         <p>Delivery times may vary slightly due to weather or public holidays.</p>
         <p>Thank you for shopping with us!</p>
@@ -94,15 +94,8 @@ const Product = () => {
       content: `
   <h4>Return & Refund Policy</h4>
   <p>
-    You can return the product within <strong>7 days</strong> of delivery. A full refund will be provided after we receive the item, as long as:
-  </p>
-  <ul>
-    <li>The item should unused, <strong>undamaged</strong>, and in its <strong>original condition</strong>.</li>
-  </ul>
-  <p>
-    To initiate a return, please <strong>contact us before sending the item back</strong>.
-  </p>
-  <p>Thank you for understanding!</p>
+   God knows why you want to return a piece of MAMA BOBS quality apparel. But if you do, any item can be returned within 30 days of purchase
+  </p> 
 
       `,
     },
@@ -133,7 +126,7 @@ const Product = () => {
           <Accordion key={index} title={item.title} content={item.content} />
         ))}
         <a
-          href="https://www.whatsapp.com/"
+          href="https://wa.me/61467395529"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-[#1ebe5c] transition-colors duration-300"

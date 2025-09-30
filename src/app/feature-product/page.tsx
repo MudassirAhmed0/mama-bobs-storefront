@@ -4,9 +4,9 @@ import React from "react";
 
 const page = () => {
   return (
-    // <Layout>
-    <ShopPage />
-    // </Layout>
+    <Layout variant2>
+      <ShopPage />
+    </Layout>
   );
 };
 

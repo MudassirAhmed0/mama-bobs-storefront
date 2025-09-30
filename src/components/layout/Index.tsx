@@ -4,13 +4,18 @@ import Footer from "./footer/Footer";
 interface LayoutProps {
   children: React.ReactNode;
   footerSecondLogo?: boolean;
+  variant2?: boolean;
 }
-const Layout = ({ children, footerSecondLogo = false }: LayoutProps) => {
+const Layout = ({
+  children,
+  footerSecondLogo = false,
+  variant2,
+}: LayoutProps) => {
   return (
     <>
       <Navbar />
       <main>{children}</main>
-      <Footer footerSecondLogo={footerSecondLogo} />
+      <Footer footerSecondLogo={variant2} />
     </>
   );
 };
