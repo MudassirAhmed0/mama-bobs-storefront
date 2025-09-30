@@ -149,17 +149,24 @@ const Footer = ({ footerSecondLogo }: prop) => {
               <ul className="flex flex-col lg:gap-y-vw12 gap-y-3">
                 <li>M - F / 9AM - 4PM</li>
                 <li>Sat. / Appointment Only</li>
+                <li>
+                  <Link href={"tel:+61467395529"} className=" text-white">
+                    Tel: +61467395529
+                  </Link>
+                </li>
                 <li className="opacity_Hover">
-                  <Link href={"/"} className="">
-                    Address: 3145 Coa P3 unit 258, eden MAMA BOBS, TX 78219
+                  <Link
+                    href="https://www.google.com/maps/place/283+West+St,+Umina+Beach+NSW+2257"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white"
+                  >
+                    PO Box 3149 283 west street,Umina Beach NSW 2257
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="lg:w-[24%] w-full flex flex-col lg:gap-y-vw20 gap-y-3 lg:text14 mtext14 font-inter">
-              <span className="font-bold lg:text22 mtext18">
-                Be Part of Street&apos;s
-              </span>
               <div className="flex flex-col lg:gap-y-vw12 gap-y-3">
                 <div className="flex items-center gap-2 bg-white py-3 px-3 rounded-lg overflow-hidden">
                   <span className="text-gray-400">

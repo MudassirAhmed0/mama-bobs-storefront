@@ -21,12 +21,12 @@ const FaqsPage = () => {
     {
       question: "Can I contact customer support?",
       answer:
-        "Absolutely. Tel: (415) 555-0132 Email: admin@mamabobs.com",
+        "Absolutely. Tel: +61467395529 Email: admin@mamabobs.com",
     },
     
     {
       question: "Can I change or cancel my order?",
-      answer: "Absolutely. You Can just contact us. Tel: (415) 555-0132 Email: admin@mamabobs.com",
+      answer: "Absolutely. You Can just contact us. Tel: +61467395529 Email: admin@mamabobs.com",
     },
     {
       question: "How long does delivery take?",

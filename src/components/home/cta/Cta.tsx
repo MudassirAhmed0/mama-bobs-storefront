@@ -16,20 +16,19 @@ const Cta = () => {
               SAY "MAMA BOB'S"!!
             </p>
             <div className="flex flex-col mt-3">
-              <Link href={"tel:(415) 555-0132"} className=" text-white">
-                Tel: (415) 555-0132
+              <Link href={"tel:+61467395529"} className=" text-white">
+                Tel: +61467395529
               </Link>
               <Link href={"mailto:admin@mamabobs.com"} className=" text-white">
                 Email: admin@mamabobs.com
               </Link>
               <Link
-                href="https://maps.google.com/?q=P.O.+Box+1234,+New+York,+NY"
+                href="https://www.google.com/maps/place/283+West+St,+Umina+Beach+NSW+2257"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white"
               >
-                PO Box which is- PO Box 3149 283 west
-                street,Umina Beach NSW 2257
+                PO Box 3149 283 west street,Umina Beach NSW 2257
               </Link>
             </div>
           </div>
