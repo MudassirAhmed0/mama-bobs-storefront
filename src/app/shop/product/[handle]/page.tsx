@@ -108,7 +108,7 @@ const Product = () => {
         <div className="flex flex-col gap-y-2">
           <h1 className="text-2xl font-bold">{data?.product?.title}</h1>
           <p
-            className="text-sm text-gray-500"
+            className="text-md"
             dangerouslySetInnerHTML={{ __html: data?.product?.descriptionHtml }}
           ></p>
           <ProductOptions
