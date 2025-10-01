@@ -20,7 +20,7 @@ export default function SizeChartPopup() {
           <div className="bg-white rounded-xl shadow-lg p-4 max-w-2xl w-full relative">
             {/* Image */}
             <img
-              src="/images/size-chart.jpg" // replace with your image path
+              src="/images/size-chart.png" // replace with your image path
               alt="Size Chart"
               className="w-full h-auto rounded"
             />
