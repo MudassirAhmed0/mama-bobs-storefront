@@ -83,7 +83,7 @@ const Product = () => {
       title: "Shipping",
       content: `
         <h4>Delivery Policy</h4>
-        <p>Currently we are doing only Interstate deliveries within <b>3 to 5 working days</b>. Once your order is confirmed, it will be processed and shipped promptly. You will receive a tracking number as soon as your parcel is dispatched.</p>
+        <p>Currently we are doing only Interstate deliveries,Standard Delivery may take upto 5-7 business days and Express Delivery will take around 2-4 Business days.   Once your order is confirmed, it will be processed and shipped promptly. You will receive a tracking number as soon as your parcel is dispatched.</p>
         <h4>Note</h4>
         <p>Delivery times may vary slightly due to weather or public holidays.</p>
         <p>Thank you for shopping with us!</p>
