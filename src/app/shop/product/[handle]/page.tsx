@@ -100,13 +100,17 @@ const Product = () => {
       `,
     },
   ];
+  console.log(data?.product);
   return (
     <div className="flex items-start flex-wrap justify-between">
       <ProductCarousel images={data?.product?.images?.edges as ImageEdge[]} />
       <div className="flex flex-col gap-y-8 w-full lg:w-[40%]">
         <div className="flex flex-col gap-y-2">
           <h1 className="text-2xl font-bold">{data?.product?.title}</h1>
-          <p className="text-sm text-gray-500">{data?.product?.description}</p>
+          <p
+            className="text-sm text-gray-500"
+            dangerouslySetInnerHTML={{ __html: data?.product?.descriptionHtml }}
+          ></p>
           <ProductOptions
             selectedOptions={selectedOptions}
             setSelectedOptions={handleSelectOptions}

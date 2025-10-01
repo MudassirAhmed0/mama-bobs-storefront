@@ -9231,6 +9231,7 @@ export type GetProductByHandleQuery = {
     id: string;
     title: string;
     description: string;
+    descriptionHtml: string;
     productType: string;
     priceRange: {
       __typename?: "ProductPriceRange";
