@@ -5,7 +5,6 @@ import { GET_COLLECTIONS_QUERY } from "@/graphql/collections";
 import { useStorefrontQuery } from "@/hooks/useStorefront";
 import { GetCollectionsQuery, GetProductsQuery } from "@/types/shopify-graphql";
 import Image from "next/image";
-import React from "react";
 import { useRouter } from "next/navigation";
 import { GET_ALL_PORDUCTS } from "@/graphql/allproducts";
 import Link from "next/link";
@@ -18,7 +17,7 @@ const AllProducts = () => {
       query: GET_ALL_PORDUCTS,
     }
   );
-  console.log(data);
+  console.log(data, "data");
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -33,11 +32,15 @@ const AllProducts = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {data?.products?.edges.map((item, index) => {
+        const isComing = item.node.title.toLowerCase().includes("coming");
         return (
           <Link
             key={index}
-            className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all cursor-pointer"
-            href={"/shop/product/" + item.node.handle}
+            className={`border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all ${
+              isComing ? "cursor-not-allowed  " : "cursor-pointer"
+            }`}
+            onClick={(e) => isComing && e.preventDefault()}
+            href={isComing ? "#" : "/shop/product/" + item.node.handle}
           >
             {item.node.media.nodes.length > 0 && (
               <div className="relative h-64 bg-gray-100">

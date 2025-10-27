@@ -1,5 +1,5 @@
 import AllProducts from "@/components/view/AllProducts";
-
+export const dynamic = "force-dynamic";
 const page = () => {
   return (
     <>
